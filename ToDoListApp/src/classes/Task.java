@@ -39,7 +39,7 @@ public class Task {
     public String toString() {
     return "Task ID: " + id +
     ", Description: " + description +
-    ", Completed: " + (isCompleted ? "Yes" : "No") +
+    ", Completed: " + (isCompleted ? "はい" : "いいえ") +
     ", Priority: " + priority; // Include priority in toString
     }
 }
