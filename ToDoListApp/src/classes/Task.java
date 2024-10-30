@@ -1,6 +1,8 @@
 package classes;
+
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+
 public class Task {
     private static int idCounter = 1;
     private int id;
@@ -37,9 +39,14 @@ public class Task {
     public void markAsCompleted() {
     this.isCompleted = true;
     }
+
     public void markAsNotCompleted() {
         this.isCompleted = false;
         }
+
+    public void changePriority(String newPriority){
+    this.priority = newPriority;
+    }
 
     // Method to set the deadline with validation
     public void setDeadline(String deadline) {

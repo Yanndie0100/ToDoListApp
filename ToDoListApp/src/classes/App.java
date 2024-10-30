@@ -8,13 +8,16 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the To-Do List App!");
         while (true) {
-            System.out.println("\nOptions:");
-            System.out.println("1. Add a new task");
+            System.out.println("\n     OPTIONS:");
+            System.out.println("__________________");
+            System.out.println("\n1. Add a new task");
             System.out.println("2. View all tasks");
             System.out.println("3. Mark a task as completed");
             System.out.println("4. Mark a task as not completed");
+            System.out.println("5. Change Task Priority");
             System.out.println("6. Exit");
-            System.out.print("Choose an option: ");
+            System.out.println("__________________");
+            System.out.print("\nChoose an option: ");
 
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
@@ -35,13 +38,30 @@ public class App {
                 System.out.println("Exiting the app. Goodbye!");
                 scanner.close();
                 return;
+                case 5:
+                if (!taskManager.getTasks().isEmpty()){
+                    taskManager.viewTasks();
+                    System.out.print("Please choose which task to change (Input ID): ");
+                    int taskIndex = scanner.nextInt();
+                    System.out.println();
+                    System.out.println("Please input the new priority: ");
+                    scanner.nextLine();
+                    String newPriority = scanner.nextLine();
+                    taskManager.tasks.get(taskIndex-1).changePriority(newPriority);
+                    System.out.println("Priority successfully changed");
+                }
+                else{
+                    System.out.println("No tasks have been added yet.");
+                    continue;
+                }
+                break;
                 default:
                 System.out.println("Invalid option. Please try again.");
             }
         }
     }
     private static void addNewTask(Scanner scanner) {
-        System.out.print("Enter task description: ");
+        System.out.print("\nEnter task description: ");
         String description = scanner.nextLine();
         System.out.print("Enter task deadline (YYYY-MM-DD): ");
         String deadline = scanner.nextLine();
