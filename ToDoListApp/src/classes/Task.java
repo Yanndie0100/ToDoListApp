@@ -40,6 +40,10 @@ public class Task {
     this.isCompleted = true;
     }
 
+    public void changePriority(String newPriority){
+    this.priority = newPriority;
+    }
+
 
     // Method to set the deadline with validation
     public void setDeadline(String deadline) {
