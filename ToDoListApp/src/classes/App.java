@@ -13,8 +13,9 @@ public class App {
             System.out.println("\n1. Add a new task");
             System.out.println("2. View all tasks");
             System.out.println("3. Mark a task as completed");
-            System.out.println("4. Exit");
+            System.out.println("4. Mark a task as not completed");
             System.out.println("5. Change Task Priority");
+            System.out.println("6. Exit");
             System.out.println("__________________");
             System.out.print("\nChoose an option: ");
 
@@ -31,6 +32,9 @@ public class App {
                 completeTask(scanner);
                 break;
                 case 4:
+                notCompleteTask(scanner);
+                break;
+                case 6:
                 System.out.println("Exiting the app. Goodbye!");
                 scanner.close();
                 return;
@@ -75,6 +79,15 @@ public class App {
         System.out.println("Task marked as completed.");
         } else {
         System.out.println("Task not found.");
+        }
+    }
+    private static void notCompleteTask(Scanner scanner) {
+        System.out.print("Enter task ID to mark as not completed: ");
+        int taskId = scanner.nextInt();
+        if (taskManager.markTaskAsNotCompleted(taskId)) {
+            System.out.println("Task marked as not completed.");
+        } else {
+            System.out.println("Task not found.");
         }
     }
 }

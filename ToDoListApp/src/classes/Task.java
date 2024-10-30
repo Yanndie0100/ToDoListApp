@@ -40,10 +40,13 @@ public class Task {
     this.isCompleted = true;
     }
 
+    public void markAsNotCompleted() {
+        this.isCompleted = false;
+        }
+
     public void changePriority(String newPriority){
     this.priority = newPriority;
     }
-
 
     // Method to set the deadline with validation
     public void setDeadline(String deadline) {
@@ -62,7 +65,7 @@ public class Task {
     public String toString() {
     return "Task ID: " + id +
     ", Description: " + description +
-    ", Completed: " + (isCompleted ? "はい" : "いいえ") +
+    ", Completed: " + (isCompleted ? "yaurs" : "naur") +
     ", Priority: " + priority; // Include priority in toString
 
     }
