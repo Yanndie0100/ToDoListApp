@@ -14,6 +14,7 @@ public class App {
             System.out.println("2. View all tasks");
             System.out.println("3. Mark a task as completed");
             System.out.println("4. Exit");
+            System.out.println("5. Change Task Priority");
             System.out.println("__________________");
             System.out.print("\nChoose an option: ");
 
@@ -33,6 +34,23 @@ public class App {
                 System.out.println("Exiting the app. Goodbye!");
                 scanner.close();
                 return;
+                case 5:
+                if (!taskManager.getTasks().isEmpty()){
+                    taskManager.viewTasks();
+                    System.out.print("Please choose which task to change (Input ID): ");
+                    int taskIndex = scanner.nextInt();
+                    System.out.println();
+                    System.out.println("Please input the new priority: ");
+                    scanner.nextLine();
+                    String newPriority = scanner.nextLine();
+                    taskManager.tasks.get(taskIndex-1).changePriority(newPriority);
+                    System.out.println("Priority successfully changed");
+                }
+                else{
+                    System.out.println("No tasks have been added yet.");
+                    continue;
+                }
+                break;
                 default:
                 System.out.println("Invalid option. Please try again.");
             }
