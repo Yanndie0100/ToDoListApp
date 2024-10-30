@@ -33,4 +33,14 @@ public class TaskManager {
         }
         return false;
     }
+    public boolean markTaskAsNotCompleted(int taskId) {
+        for (Task task : tasks) {
+            if (task.getId() == taskId) {
+                task.markAsNotCompleted();
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
