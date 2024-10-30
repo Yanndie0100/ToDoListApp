@@ -4,7 +4,8 @@ public class Task {
     private static int idCounter = 1;
     private int id;
     private String description;
-    private String deadline;
+    private String deadline; // **Changed to LocalDate for better date handling**
+
     private boolean isCompleted;
     private String priority; // New attribute for task priority
  
@@ -20,7 +21,12 @@ public class Task {
     }
     
     public String getDescription() {
-    return description;
+
+        return description;
+    }
+
+    public String getDeadline() {
+        return deadline;
     }
     
     public boolean isCompleted() {
@@ -34,12 +40,27 @@ public class Task {
     public void markAsCompleted() {
     this.isCompleted = true;
     }
-    
+
+
+    // Method to set the deadline with validation
+    public void setDeadline(String deadline) {
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            this.deadline = String.format(deadline, formatter);
+            System.out.println("Date valid and applied!");
+        } catch (DateTimeParseException e) {
+            System.out.println("Invalid date format. Please use 'yyyy-MM-dd'.");
+            this.deadline = null; // or set to a default date if necessary
+        }
+    }
+
+
     @Override
     public String toString() {
-    return "Task ID: " + id +
-    ", Description: " + description +
-    ", Completed: " + (isCompleted ? "はい" : "いいえ") +
-    ", Priority: " + priority; // Include priority in toString
+        return "Task ID: " + id +
+               ", Description: " + description +
+               ", 締め切り: " + deadline +
+               ", Completed: " + (isCompleted ? "Yes" : "No")+
+               ", Priority: " + priority; // Include priority in toString;
     }
 }
