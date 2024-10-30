@@ -1,5 +1,8 @@
 package classes;
 
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 public class Task {
     private static int idCounter = 1;
     private int id;
@@ -56,7 +59,5 @@ public class Task {
     return "Task ID: " + id +
     ", Description: " + description +
     ", Completed: " + (isCompleted ? "はい" : "いいえ") +
-    ", Priority: " + priority; // Include priority in toString
-
     }
 }
