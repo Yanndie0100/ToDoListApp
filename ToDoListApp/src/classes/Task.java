@@ -32,11 +32,7 @@ public class Task {
     public boolean isCompleted() {
     return isCompleted;
     }
-    
-    public String getPriority() {
-    return priority; // Getter for priority
-    }
-    
+  
     public void markAsCompleted() {
     this.isCompleted = true;
     }
@@ -59,8 +55,7 @@ public class Task {
     public String toString() {
         return "Task ID: " + id +
                ", Description: " + description +
-               ", 締め切り: " + deadline +
-               ", Completed: " + (isCompleted ? "Yes" : "No")+
-               ", Priority: " + priority; // Include priority in toString;
+               ", Deadline: " + deadline +
+               ", Completed: " + (isCompleted ? "Yes" : "No");
     }
 }
