@@ -8,7 +8,7 @@ public class Task {
     private static int idCounter = 1;
     private int id;
     private String description;
-    private LocalDate deadline; // **Changed to LocalDate for better date handling**
+    private String deadline; // **Changed to LocalDate for better date handling**
     private boolean isCompleted;
     private String priority; // New attribute for task priority
     
@@ -29,7 +29,7 @@ public class Task {
         return description;
     }
 
-    public LocalDate getDeadline() {
+    public String getDeadline() {
         return deadline;
     }
 
@@ -51,7 +51,8 @@ public class Task {
     public void setDeadline(String deadline) {
         try {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            this.deadline = LocalDate.parse(deadline, formatter);
+            this.deadline = String.format(deadline, formatter);
+            System.out.println("Date valid and applied!");
         } catch (DateTimeParseException e) {
             System.out.println("Invalid date format. Please use 'yyyy-MM-dd'.");
             this.deadline = null; // or set to a default date if necessary
@@ -63,7 +64,7 @@ public class Task {
     public String toString() {
         return "Task ID: " + id +
                ", Description: " + description +
-               ", Deadline: " + deadline +
+               ", 締め切り: " + deadline +
                ", Completed: " + (isCompleted ? "Yes" : "No")+
                ", Priority: " + priority; // Include priority in toString;
     }
