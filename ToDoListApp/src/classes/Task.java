@@ -53,9 +53,10 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task ID: " + id +
-               ", Description: " + description +
-               ", Deadline: " + deadline +
-               ", Completed: " + (isCompleted ? "Yes" : "No");
+    return "Task ID: " + id +
+    ", Description: " + description +
+    ", Completed: " + (isCompleted ? "はい" : "いいえ") +
+    ", Priority: " + priority; // Include priority in toString
+
     }
 }
