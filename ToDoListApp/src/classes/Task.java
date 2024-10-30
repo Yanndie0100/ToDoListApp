@@ -37,11 +37,6 @@ public class Task {
         return isCompleted;
     }
 
-    public String getPriority() {
-        return priority; // Getter for priority
-    }
-
-
     public void markAsCompleted() {
         this.isCompleted = true;
         System.out.println("Task ID " + id + " marked as completed."); // Log completion
@@ -64,7 +59,6 @@ public class Task {
         return "Task ID: " + id +
                ", Description: " + description +
                ", Deadline: " + deadline +
-               ", Completed: " + (isCompleted ? "Yes" : "No")+
-               ", Priority: " + priority; // Include priority in toString;
+               ", Completed: " + (isCompleted ? "Yes" : "No");
     }
 }
