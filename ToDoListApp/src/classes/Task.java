@@ -58,6 +58,6 @@ public class Task {
     public String toString() {
     return "Task ID: " + id +
     ", Description: " + description +
-    ", Completed: " + (isCompleted ? "はい" : "いいえ") +
+    ", Completed: " + (isCompleted ? "はい" : "いいえ");
     }
 }
